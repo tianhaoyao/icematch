@@ -1,0 +1,9 @@
+{
+  "name": "icematch",
+  "version": "1.0.0",
+  "description": "an icebreaker game",
+  "main": "index.js",
+  "repository": "https://github.com/tianhaoyao/icematch.git",
+  "author": "ricecustomer <tianhao.yao@mail.utoronto.ca>",
+  "license": "MIT"
+}
