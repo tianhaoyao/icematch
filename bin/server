@@ -27,7 +27,7 @@ Object.keys(networks).forEach(function (netname) {
   });
 });
 
-server.listen(PORT, address, (err) => {
+server.listen(PORT, (err) => {
   if (err) throw err
 
   console.log(`Server running on ${address}:${PORT}!`)
