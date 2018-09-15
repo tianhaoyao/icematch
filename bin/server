@@ -8,14 +8,27 @@ const app = require('../app')
 const register = require('../game/register')
 const colyseus = require('colyseus')
 const http = require('http')
+const os = require('os')
+const networks = os.networkInterfaces()
 
 const server = http.createServer(app)
 const gameServer = new colyseus.Server({ server })
 
+var address = ''
+
 register(gameServer)
+
+Object.keys(networks).forEach(function (netname) {
+  networks[netname].forEach(function (network) {
+    if ('IPv4' == network.family && network.internal == false) {
+      // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+      address = network.address
+    }
+  });
+});
 
 server.listen(PORT, (err) => {
   if (err) throw err
 
-  console.log(`Server listening to port ${PORT}!`)
+  console.log(`Server running on ${address}:${PORT}!`)
 })
