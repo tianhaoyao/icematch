@@ -1,8 +1,9 @@
 const express = require('express')
 const path = require('path')
+const api = require('./api')
 const app = express()
 
-// app.use('/api', myApiRouter)
+app.use('/api', api)
 
 app.use('/static', express.static(path.join(__dirname, 'static')))
 
