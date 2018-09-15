@@ -25,9 +25,9 @@ async function upload (req, res) {
   }
 
   try {
-    const videoPath = path.join(__dirname, `../../data/${fileuuid}.jpg`)
+    const picturePath = path.join(__dirname, `../../data/${fileuuid}.jpg`)
 
-    await video.mv(videoPath)
+    await picture.mv(picturePath)
   } catch (err) {
     console.error(err)
 
