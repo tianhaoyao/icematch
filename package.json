@@ -19,7 +19,6 @@
     "standard": "^12.0.1"
   },
   "dependencies": {
-    "cors": "^2.8.4",
     "colyseus": "^0.9.15",
     "express": "^4.16.3"
   }
