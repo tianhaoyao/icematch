@@ -8,7 +8,7 @@ class GameState {
 
   addPlayer (client) {
     const x = Math.floor(Math.random() * (NO_BOUND - YES_BOUND) + YES_BOUND)
-    const y = Math.floor(Math.random() * 600)
+    const y = Math.floor(Math.random() * SCREEN_HEIGHT)
     this.players[client.sessionId] = new Player(x, y, 'file.png')
   }
 
