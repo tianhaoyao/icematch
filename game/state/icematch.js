@@ -8,7 +8,8 @@ class GameState {
 
   addPlayer (client) {
     const x = Math.floor(Math.random() * (NO_BOUND - YES_BOUND) + YES_BOUND)
-    this.players[client.sessionId] = new Player(x, 0, 'file.png')
+    const y = Math.floor(Math.random() * 600)
+    this.players[client.sessionId] = new Player(x, y, 'file.png')
   }
 
   removePlayer (client) {

@@ -14,7 +14,7 @@ class View {
   }
 
   renderLoop () {
-    this.app.ticker.add(() => {
+    this.app.ticker.add((delta) => {
       for (const id in this.players) {
         const lerpRate = 5
 
@@ -24,8 +24,8 @@ class View {
         sprite.x = player.x
         sprite.y = player.y
 
-        sprite.x = cosineInterp(sprite.x, position.x, delta / lerpRate)
-        sprite.y = cosineInterp(sprite.y, position.y, delta / lerpRate)
+        sprite.x = cosineInterp(sprite.x, player.x, delta / lerpRate)
+        sprite.y = cosineInterp(sprite.y, player.y, delta / lerpRate)
       }
     })
   }
@@ -36,7 +36,7 @@ class View {
     sprite.x = x
     sprite.y = y
 
-    this.players[id] = new Player(0, 0, 'file.png')
+    this.players[id] = new Player(x, y, 'file.png')
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)
