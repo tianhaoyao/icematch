@@ -2,8 +2,8 @@
 const SCREEN_WIDTH = 800
 const SCREEN_HEIGHT = 600
 const VELOCITY = 1
-const YES_BOUND = SCREEN_WIDTH/4
-const NO_BOUND = (SCREEN_WIDTH/4)*3
+const YES_BOUND = SCREEN_WIDTH / 4
+const NO_BOUND = (SCREEN_WIDTH / 4) * 3
 
 module.exports = {
   SCREEN_WIDTH,

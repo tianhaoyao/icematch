@@ -6,6 +6,8 @@ class IceRoom extends Room {
   onInit () {
     this.setState(new GameState())
     this.playerDirections = {}
+
+     this.setSimulationInterval(() => this.update())
   }
 
   onJoin (client, options) {
@@ -18,6 +20,7 @@ class IceRoom extends Room {
         right: false
       }
       console.log(`Player ${client.sessionId} joined!`)
+    }
   }
 
   onMessage (client, data) {
@@ -32,7 +35,6 @@ class IceRoom extends Room {
     for (const sessionId in this.playerDirections) {
       const moveSet = this.playerDirections[sessionId]
       const player = this.state.getPlayer(sessionId)
-
       if (moveSet.up && player.y > 0) {
         this.state.moveUp(sessionId)
       }
