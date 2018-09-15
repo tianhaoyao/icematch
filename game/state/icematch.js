@@ -30,7 +30,7 @@ class GameState {
     this.players[sessionId].x += VELOCITY
   }
 
-  getPlayer (id) {
+  getPlayer (sessionId) {
     return this.players[sessionId]
   }
 }
