@@ -10,4 +10,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './static/index.html'))
 })
 
+app.get('/controller', (req, res) => {
+  res.sendFile(path.join(__dirname, './static/controller/index.html'))
+})
+
+app.get('/view', (req, res) => {
+  res.sendFile(path.join(__dirname, './static/view/index.html'))
+})
+
 module.exports = app
