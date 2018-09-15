@@ -46,4 +46,4 @@ class View {
   }
 }
 
-new View()
+module.exports = View
