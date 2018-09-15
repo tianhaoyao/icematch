@@ -37,6 +37,7 @@ class View {
   }
 
   removePlayer (id) {
+    this.sprites[id].destroy()
     delete this.sprites[id]
     delete this.players[id]
   }
@@ -46,4 +47,4 @@ class View {
   }
 }
 
-new View()
+module.exports = View
