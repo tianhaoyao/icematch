@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
+import {cosineInterp} from './interp'
 
 class View {
   constructor () {
@@ -15,11 +16,16 @@ class View {
   renderLoop () {
     this.app.ticker.add(() => {
       for (const id in this.players) {
+        const lerpRate = 5
+
         const sprite = this.sprites[id]
         const player = this.players[id]
 
         sprite.x = player.x
         sprite.y = player.y
+
+        sprite.x = cosineInterp(sprite.x, position.x, delta / lerpRate)
+        sprite.y = cosineInterp(sprite.y, position.y, delta / lerpRate)
       }
     })
   }

@@ -18,6 +18,7 @@ class IceRoom extends Room {
         right: false
       }
       console.log(`Player ${client.sessionId} joined!`)
+    }
   }
 
   onMessage (client, data) {
