@@ -18,5 +18,8 @@
     "parcel-bundler": "^1.9.7",
     "standard": "^12.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "colyseus": "^0.9.15",
+    "express": "^4.16.3"
+  }
 }
