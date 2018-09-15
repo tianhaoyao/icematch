@@ -1,6 +1,7 @@
 node_modules/
 static/
+data/
 .cache/
 *.swo
 *.swp
-data/
+*.log
