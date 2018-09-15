@@ -4,7 +4,7 @@ import Player from '../../game/state/player'
 
 class View {
   constructor () {
-    this.app = new PIXI.Application({backgroundColor: 0xfff8d1})
+    this.app = new PIXI.Application({ backgroundColor: 0xfff8d1 })
     this.players = {}
     this.sprites = {}
 
@@ -45,3 +45,5 @@ class View {
     this.players[id][dimension] = value
   }
 }
+
+new View()
