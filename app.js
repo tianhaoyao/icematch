@@ -5,7 +5,6 @@ const app = express()
 
 app.use('/api', api)
 
-
 app.use('/static', express.static(path.join(__dirname, 'static')))
 
 app.get('/', (req, res) => {
