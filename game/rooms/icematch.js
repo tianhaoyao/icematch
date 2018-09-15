@@ -9,7 +9,7 @@ class IceRoom extends Room {
   }
 
   onJoin (client) {
-    this.state.onJoin(client)
+    this.state.addPlayer(client)
 
     this.playerDirections[client.sessionId] = {
       up: false,
@@ -23,7 +23,7 @@ class IceRoom extends Room {
 
   onMessage (client, data) {
     const direction = Object.keys(data)[0]
-    this.state.updatePlayerDirection(client, direction, data[direction])
+    this.updatePlayerDirection(client, direction, data[direction])
 
     console.log(`Message from ${client.sessionId}:`)
     console.log(data)
