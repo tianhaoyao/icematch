@@ -7,9 +7,9 @@ class IceRoom extends Room {
     this.setState(new GameState())
     this.playerDirections = {}
 
-     this.setSimulationInterval(() => this.update())
+    this.setSimulationInterval(() => this.update())
   }
-
+  
   onJoin (client, options) {
     if (options.player) {
       this.state.addPlayer(client)
