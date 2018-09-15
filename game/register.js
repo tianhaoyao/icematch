@@ -2,7 +2,7 @@
 
 function register (gameServer) {
   const roomMap = {
-    'icematch': './room/icematch'
+    'icematch': './rooms/icematch'
   }
 
   for (const roomName in roomMap) {
