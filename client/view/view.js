@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
+import {cosineInterp} from './interp'
 
 class View {
   constructor () {
@@ -13,13 +14,15 @@ class View {
   }
 
   renderLoop () {
-    this.app.ticker.add(() => {
+    this.app.ticker.add((delta) => {
       for (const id in this.players) {
+        const lerpRate = 5
+
         const sprite = this.sprites[id]
         const player = this.players[id]
 
-        sprite.x = player.x
-        sprite.y = player.y
+        sprite.x = cosineInterp(sprite.x, player.x, delta / lerpRate)
+        sprite.y = cosineInterp(sprite.y, player.y, delta / lerpRate)
       }
     })
   }
@@ -30,13 +33,14 @@ class View {
     sprite.x = x
     sprite.y = y
 
-    this.players[id] = new Player(0, 0, 'file.png')
+    this.players[id] = new Player(x, y, 'file.png')
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)
   }
 
   removePlayer (id) {
+    this.sprites[id].destroy()
     delete this.sprites[id]
     delete this.players[id]
   }
@@ -46,4 +50,4 @@ class View {
   }
 }
 
-new View()
+module.exports = View

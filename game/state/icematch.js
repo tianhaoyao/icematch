@@ -1,5 +1,5 @@
 const Player = require('./player')
-const { VELOCITY } = require('../../config.js')
+const { VELOCITY, YES_BOUND, NO_BOUND } = require('../../config.js')
 
 class GameState {
   constructor () {
@@ -7,7 +7,9 @@ class GameState {
   }
 
   addPlayer (client) {
-    this.players[client.sessionId] = new Player(0, 0, 'file.png')
+    const x = Math.floor(Math.random() * (NO_BOUND - YES_BOUND) + YES_BOUND)
+    const y = Math.floor(Math.random() * SCREEN_HEIGHT)
+    this.players[client.sessionId] = new Player(x, y, 'file.png')
   }
 
   removePlayer (client) {
@@ -30,7 +32,7 @@ class GameState {
     this.players[sessionId].x += VELOCITY
   }
 
-  getPlayer (id) {
+  getPlayer (sessionId) {
     return this.players[sessionId]
   }
 }

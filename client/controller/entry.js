@@ -8,7 +8,7 @@ import TouchController from './controller'
 import virtuals from './virtuals'
 
 const client = new Colyseus.Client(`ws://${window.location.host}`)
-const room = client.join('icematch')
+const room = client.join('icematch', { player: true })
 const $ = slt => document.querySelector(slt)
 
 const controller = new TouchController(room, virtuals)
