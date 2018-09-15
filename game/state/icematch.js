@@ -1,4 +1,5 @@
 const Player = require('./player')
+const { VELOCITY } = require('../../config.js')
 
 class GameState {
   constructor () {
@@ -13,8 +14,24 @@ class GameState {
     delete this.players[client.sessionId]
   }
 
-  movePlayer (sessionId, dimension, change) {
-    this.players[sessionId][dimension] += change
+  moveUp (sessionId) {
+    this.players[sessionId].y -= VELOCITY
+  }
+
+  moveDown (sessionId) {
+    this.players[sessionId].y += VELOCITY
+  }
+
+  moveLeft (sessionId) {
+    this.players[sessionId].x -= VELOCITY
+  }
+
+  moveRight (sessionId) {
+    this.players[sessionId].x += VELOCITY
+  }
+
+  getPlayer (id) {
+    return this.players[sessionId]
   }
 }
 
