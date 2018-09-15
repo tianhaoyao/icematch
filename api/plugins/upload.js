@@ -18,14 +18,14 @@ async function upload (req, res) {
 
   const { picture } = req.files
   const fileuuid = uuid()
-  const getUrl = filename => `http://${req.headers.host}/api/data/${filename}.jpg`
+  const getUrl = filename => `http://${req.headers.host}/static/images/${filename}.jpg`
 
   if (picture.mimetype !== 'image/jpeg') {
     return res.status(400).send('Invalid file type')
   }
 
   try {
-    const picturePath = path.join(__dirname, `../../data/${fileuuid}.jpg`)
+    const picturePath = path.join(__dirname, `../../static/images/${fileuuid}.jpg`)
 
     await picture.mv(picturePath)
   } catch (err) {
