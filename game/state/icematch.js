@@ -13,8 +13,8 @@ class GameState {
     delete this.players[client.sessionId]
   }
 
-  moveDirection (sessionId, plane, change) {
-    this.players[sessionId][plane] += change
+  movePlayer (sessionId, dimension, change) {
+    this.players[sessionId][dimension] += change
   }
 }
 
