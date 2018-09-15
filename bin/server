@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const PORT = 8080 || process.env.PORT
+
+const app = require('../app')
+const register = require('../game/register')
+const colyseus = require('colyseus')
+const http = require('http')
+
+const server = http.createServer(app)
+const gameServer = new colyseus.Server({ server })
+
+register(gameServer)
+
+server.listen(PORT, (err) => {
+  if (err) throw err
+
+  console.log(`Server listening to port ${PORT}!`)
+})
