@@ -1,6 +1,6 @@
 const { Room } = require('colyseus')
 const GameState = require('../state/icematch')
-const { SCREEN_WIDTH, SCREEN_HEIGHT } = require('../../client/config.js')
+const { SCREEN_WIDTH, SCREEN_HEIGHT } = require('../../config.js')
 
 class IceRoom extends Room {
   onInit () {
@@ -32,19 +32,19 @@ class IceRoom extends Room {
   update () {
     for (const sessionId in this.playerDirections) {
       const moveSet = this.playerDirections[sessionId]
-      const player = this.state.players[sessionId]
+      const player = this.state.getPlayer(sessionId)
 
       if (moveSet.up && player.y > 0) {
-        this.state.moveDirection(sessionId, 'y', -1)
+        this.state.moveUp(sessionId)
       }
       if (moveSet.down && player.y < SCREEN_HEIGHT) {
-        this.state.moveDirection(sessionId, 'y', 1)
+        this.state.moveDown(sessionId)
       }
       if (moveSet.left && player.x > 0) {
-        this.state.moveDirection(sessionId, 'x', -1)
+        this.state.moveLeft(sessionId)
       }
       if (moveSet.right && player.x < SCREEN_WIDTH) {
-        this.state.moveDirection(sessionId, 'x', 1)
+        this.state.moveRight(sessionId)
       }
     }
   }
