@@ -21,9 +21,6 @@ class View {
         const sprite = this.sprites[id]
         const player = this.players[id]
 
-        sprite.x = player.x
-        sprite.y = player.y
-
         sprite.x = cosineInterp(sprite.x, player.x, delta / lerpRate)
         sprite.y = cosineInterp(sprite.y, player.y, delta / lerpRate)
       }

@@ -9,7 +9,7 @@ class IceRoom extends Room {
 
     this.setSimulationInterval(() => this.update())
   }
-  
+
   onJoin (client, options) {
     if (options.player) {
       this.state.addPlayer(client)
