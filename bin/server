@@ -4,13 +4,13 @@
 
 const PORT = process.env.PORT || 8080
 
-const { monitor } = require('@colyseus/monitor')
 const app = require('../app')
-const cors = require('cors')
-const register = require('../game/register')
 const colyseus = require('colyseus')
+const cors = require('cors')
 const http = require('http')
 const localIp = require('../util/ip')
+const { monitor } = require('@colyseus/monitor')
+const register = require('../game/register')
 
 const server = http.createServer(app)
 const gameServer = new colyseus.Server({ server })
