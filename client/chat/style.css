@@ -1,0 +1,31 @@
+#chat {
+  width: 340px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.you, .me {
+  width: 280px;
+  border-radius: 5px;
+  list-style-type: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.you {
+  background-color: #f9f9f9;
+  text-align: right;
+  margin-left: 40px;
+}
+
+.me {
+  background-color: #4688f2;
+  text-align: left;
+}
+
+#output {
+  padding: 0;
+}

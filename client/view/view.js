@@ -75,18 +75,82 @@ class View {
   }
 
   setQuestion (question) {
-    console.log(question)
+    this.app.stage.removeChild(this.question)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black',
+      wordWrap: true,
+      wordWrapWidth: 500
+    })
+
+    this.question = new PIXI.Text(question, style)
+    if (question.length < 32) {
+      this.question.x = (SCREEN_WIDTH / 2) - (250 - (question.length / 2) * 16)
+    } else {
+      this.question.x = (SCREEN_WIDTH / 2) - 250
+    }
+    this.question.y = 0
+
+    this.app.stage.addChild(this.question)
   }
 
   setAnswer1 (answer) {
-    console.log(answer)
+    this.app.stage.removeChild(this.answer1)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black',
+      wordWrap: true,
+      wordWrapWidth: 200
+    })
+
+    this.answer1 = new PIXI.Text(answer, style)
+    this.answer1.x = SCREEN_WIDTH / 4 - 100
+    this.answer1.y = SCREEN_HEIGHT / 8
+
+    this.app.stage.addChild(this.answer1)
   }
 
   setAnswer2 (answer) {
-    console.log(answer)
+    this.app.stage.removeChild(this.answer2)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black',
+      wordWrap: true,
+      wordWrapWidth: 200
+    })
+
+    this.answer2 = new PIXI.Text(answer, style)
+    this.answer2.x = (SCREEN_WIDTH / 4) * 3 - 100
+    this.answer2.y = SCREEN_HEIGHT / 8
+
+    this.app.stage.addChild(this.answer2)
   }
 
   setTime (time) {
+    this.app.stage.removeChild(this.time)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black'
+    })
+
+    this.time = new PIXI.Text(time, style)
+    this.time.x = SCREEN_WIDTH / 2 - 20
+    this.time.y = SCREEN_HEIGHT / 6
+
+    this.app.stage.addChild(this.time)
+
     console.log(time)
   }
 }

@@ -5,7 +5,7 @@ const questions = [
     question: 'Cats or dogs?',
     answer1: 'cats',
     answer2: 'dogs',
-    time: 10
+    time: 9
   },
   {
     question: 'Is intelligence or wisdom more useful?',
@@ -17,7 +17,7 @@ const questions = [
     question: 'Discord or Slack?',
     answer1: 'Discord',
     answer2: 'Slack',
-    time: 10
+    time: 9
   },
   {
     question: 'Does a person’s name influence the person they become?',
@@ -29,7 +29,7 @@ const questions = [
     question: 'Reddit or 4Chan?',
     answer1: 'Reddit',
     answer2: '4Chan',
-    time: 10
+    time: 9
   }
 ]
 
