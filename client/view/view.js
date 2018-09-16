@@ -1,8 +1,9 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
-import {Player, ZONES} from '../../game/state/player'
+import {Player} from '../../game/state/player'
 import {cosineInterp} from './interp'
-import {SCREEN_WIDTH, SCREEN_HEIGHT} from '../../config.js'
+import ZONES from '../../game/state/icematch'
+import {SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND} from '../../config.js'
 
 class View {
   constructor () {
@@ -46,7 +47,13 @@ class View {
     sprite.x = x
     sprite.y = y
 
-    this.players[id] = new Player(x, y, 'file.png', ZONES.NEUTRAL)
+    this.players[id] = new Player(x, y, 'file.png',  () => {
+      if (x < SPAWN_ZONE_LEFT_BOUND) {
+        return ZONES.YES
+      } else {
+        return ZONES.NO
+      }})
+
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)

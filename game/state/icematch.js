@@ -1,5 +1,10 @@
-const {Player, ZONES} = require('./player')
+const {Player} = require('./player')
 const { VELOCITY, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_WIDTH } = require('../../config.js')
+
+const ZONES = {
+  YES: 0,
+  NO: 1
+}
 
 class GameState {
   constructor () {
@@ -43,23 +48,14 @@ class GameState {
     return this.players[sessionId]
   }
 
-<<<<<<< HEAD
   updateZone (sessionId) {
     if (this.players[sessionId].x + (SPRITE_WIDTH/2) < SCREEN_WIDTH/2){
-        this.players[sessionId].zone = ZONES.YES
+      this.scores[sessionId].add(true)
     } else {
-      this.players[sessionId].zone = ZONES.NO
+     this.scores[sessionId].add(false)
     }
 
     console.log(this.players[sessionId].zone)
-  }
-=======
-  addTrue(sessionId) {
-    this.scores[sessionId].add(true)
-  }
-
-  addFalse(sessionId) {
-    this.scores[sessionId].add(false)
   }
 
   getScore(sessionId) {
@@ -75,7 +71,9 @@ class GameState {
   }
 
 
->>>>>>> 81ed3ec4abcf807770afc1c139d9859cdedd2783
 }
 
-module.exports = GameState
+module.exports = {
+  GameState,
+  ZONES
+}
