@@ -94,7 +94,7 @@ class View {
     this.question.x = SCREEN_WIDTH / 2
     this.question.y = 0
 
-    this.app.stage.addChild(question)
+    this.app.stage.addChild(this.question)
   }
 
   setAnswer1 (answer) {
