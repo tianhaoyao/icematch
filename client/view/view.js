@@ -27,6 +27,7 @@ class View {
     this.question;
     this.answer1;
     this.answer2;
+    this.time;
 
     document.getElementById('view').appendChild(this.app.view)
     this.renderLoop()
@@ -94,7 +95,11 @@ class View {
     })
 
     this.question = new PIXI.Text(question, style)
-    this.x = SCREEN_WIDTH / 2 - 250
+    if (question.length < 32) {
+      this.question.x = (SCREEN_WIDTH / 2) - (250 - (question.length/2)*16)
+    } else {
+      this.question.x = (SCREEN_WIDTH / 2) - 250
+    }
     this.question.y = 0
 
     this.app.stage.addChild(this.question)
@@ -120,6 +125,7 @@ class View {
   }
 
   setAnswer2 (answer) {
+
     this.app.stage.removeChild(this.answer2)
 
     const style = new PIXI.TextStyle({
@@ -139,7 +145,20 @@ class View {
   }
 
   setTime (time) {
-    console.log(time)
+     this.app.stage.removeChild(this.time)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black',
+    })
+
+    this.time = new PIXI.Text(time, style)
+    this.time.x = SCREEN_WIDTH / 2 - 20
+    this.time.y = SCREEN_HEIGHT / 6
+
+    this.app.stage.addChild(this.time)
   }
 }
 
