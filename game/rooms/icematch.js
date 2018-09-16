@@ -12,7 +12,7 @@ class IceRoom extends Room {
   }
 
   onJoin (client, options) {
-      if (this.state.mode.getMode() === 'lobby') {
+    if (options.player) {
         this.startLobby()
         this.state.addPlayer(client)
         this.playerDirections[client.sessionId] = {
@@ -22,16 +22,16 @@ class IceRoom extends Room {
           right: false
         }
         console.log(`Player ${client.sessionId} joined!`)
-      } else {
-        console.log(`Player ${client.sessionId} cannot join! Game in progress.`)
-      
-    }
+      }
   }
 
   onMessage (client, data) {
     if (this.state.getPlayer(client.sessionId)) {
       const direction = Object.keys(data)[0]
       this.updatePlayerDirection(client, direction, data[direction])
+
+      console.log(`Message from ${client.sessionId}:`)
+      console.log(data)
     }
   }
 
