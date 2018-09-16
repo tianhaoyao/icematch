@@ -87,7 +87,8 @@ class View {
     const style = new PIXI.TextStyle({
       fontFamily: 'Arial',
       fontSize: 36,
-      align: 'center'
+      align: 'center',
+      fill: 'black'
     })
 
     const richText = new PIXI.Text(question, style)
