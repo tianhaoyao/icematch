@@ -23,6 +23,18 @@ class View {
     this.players = {}
     this.sprites = {}
 
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black'
+    })
+
+    this.question = new PIXI.Text("Question");
+
+    this.answer1 = new PIXI.Text("Answer 1");
+    this.answer2 = new PIXI.Text("Answer 2");
+
     document.getElementById('view').appendChild(this.app.view)
     this.renderLoop()
   }
@@ -76,18 +88,11 @@ class View {
   }
 
   setQuestion (question) {
-    const style = new PIXI.TextStyle({
-      fontFamily: 'Arial',
-      fontSize: 36,
-      align: 'center',
-      fill: 'black'
-    })
+    this.question.text = question
+    this.question.x = SCREEN_WIDTH / 2
+    this.question.y = 0
 
-    const richText = new PIXI.Text(question, style)
-    richText.x = SCREEN_WIDTH / 2
-    richText.y = 0
-
-    this.app.stage.addChild(richText)
+    this.app.stage.addChild(question)
   }
 
   setAnswer1 (answer) {
