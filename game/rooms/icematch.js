@@ -50,13 +50,13 @@ class IceRoom extends Room {
       if (moveSet.up && player.y > 0) {
         this.state.moveUp(sessionId)
       }
-      if (moveSet.down && player.y + SPRITE_HEIGHT < SCREEN_HEIGHT) {
+      if (moveSet.down && player.y + 32 + (SPRITE_HEIGHT * 2) < SCREEN_HEIGHT) {
         this.state.moveDown(sessionId)
       }
       if (moveSet.left && player.x > 0) {
         this.state.moveLeft(sessionId)
       }
-      if (moveSet.right && player.x + SPRITE_WIDTH < SCREEN_WIDTH) {
+      if (moveSet.right && player.x + (SPRITE_WIDTH) < SCREEN_WIDTH) {
         this.state.moveRight(sessionId)
       }
     }

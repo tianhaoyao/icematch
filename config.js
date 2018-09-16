@@ -2,7 +2,7 @@
 
 const SCREEN_WIDTH = 1600
 const SCREEN_HEIGHT = 800
-const SPRITE_WIDTH = 32
+const SPRITE_WIDTH = 64
 const SPRITE_HEIGHT = 64
 const HEAD_HEIGHT = 64
 const VELOCITY = 2
