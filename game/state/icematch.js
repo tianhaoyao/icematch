@@ -1,4 +1,5 @@
-const {Player} = require('./player')
+const GameModeManager = require('./mode-manager')
+const Player = require('./player')
 const { VELOCITY, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_WIDTH } = require('../../config.js')
 
 const ZONES = {
@@ -9,6 +10,7 @@ const ZONES = {
 class GameState {
   constructor () {
     this.players = {}
+    this.mode = new GameModeManager()
     this.scores = {}
   }
 
@@ -48,11 +50,19 @@ class GameState {
     return this.players[sessionId]
   }
 
+  addTrue (sessionId) {
+    this.scores[sessionId].add(true)
+  }
+
+  addFalse (sessionId) {
+    this.scores[sessionId].add(false)
+  }
+
   updateZone (sessionId) {
-    if (this.players[sessionId].x + (SPRITE_WIDTH/2) < SCREEN_WIDTH/2){
+    if (this.players[sessionId].x + (SPRITE_WIDTH / 2) < SCREEN_WIDTH / 2) {
       this.scores[sessionId].add(true)
     } else {
-     this.scores[sessionId].add(false)
+      this.scores[sessionId].add(false)
     }
 
     console.log(this.players[sessionId].zone)

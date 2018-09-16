@@ -1,22 +1,22 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
-import {cosineInterp} from './interp'
-import ZONES from '../../game/state/icematch'
-import {SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND} from '../../config.js'
 import Player from '../../game/state/player'
+import { cosineInterp } from './interp'
+import ZONES from '../../game/state/icematch'
+import { SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND } from '../../config.js'
 
 class View {
   constructor () {
     this.app = new PIXI.Application({ backgroundColor: 0x66ff99 })
 
-    const graphics = new PIXI.Graphics();
+    const graphics = new PIXI.Graphics()
 
-    graphics.beginFill(0xff5050);
-    graphics.moveTo(SCREEN_WIDTH/2,0);
-    graphics.lineTo(SCREEN_WIDTH, 0);
-    graphics.lineTo(SCREEN_WIDTH, SCREEN_HEIGHT);
-    graphics.lineTo(SCREEN_WIDTH/2, SCREEN_HEIGHT);
-    graphics.endFill();
+    graphics.beginFill(0xff5050)
+    graphics.moveTo(SCREEN_WIDTH / 2, 0)
+    graphics.lineTo(SCREEN_WIDTH, 0)
+    graphics.lineTo(SCREEN_WIDTH, SCREEN_HEIGHT)
+    graphics.lineTo(SCREEN_WIDTH / 2, SCREEN_HEIGHT)
+    graphics.endFill()
 
     this.app.stage.addChild(graphics)
 
@@ -60,13 +60,19 @@ class View {
     sprite.y = y
 
     console.log('create sprite')
+<<<<<<< HEAD
     
     this.players[id] = new Player(x, y, 'photo.png',  () => {
+=======
+
+    this.players[id] = new Player(x, y, 'file.png', () => {
+>>>>>>> c30ea67f00a24ab4f6c60c3f2ea755f2815d8db9
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
       } else {
         return ZONES.NO
-      }})
+      }
+    })
 
     this.players[id] = new Player(x, y, 'photo.png')
     this.sprites[id] = sprite
