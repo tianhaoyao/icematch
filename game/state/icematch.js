@@ -70,7 +70,6 @@ class GameState {
     this.scores = {}
   }
 
-
 }
 
 module.exports = {
