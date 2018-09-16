@@ -2,15 +2,14 @@ const { Room } = require('colyseus')
 const { GameState } = require('../state/icematch')
 const GameManager = require('../game-manager')
 const { SCREEN_WIDTH, SCREEN_HEIGHT, SPRITE_HEIGHT, SPRITE_WIDTH } = require('../../config.js')
-// const questions = require('../questions')
+const questions = require('../question')
 
 class IceRoom extends Room {
   onInit () {
     const state = new GameState()
-    // eslint-disable-next-line
-    const gameManager = new GameManager(state, [])
 
     this.setState(state)
+    this.gameManager = new GameManager(state)
     this.playerDirections = {}
     this.setSimulationInterval(() => this.update())
   }
@@ -19,6 +18,10 @@ class IceRoom extends Room {
     console.log(options.head)
 
     if (options.player) {
+      if (!this.gameManager.running) {
+        this.gameManager.runGame(questions)
+      }
+
       this.state.addPlayer(client, options.head)
       this.playerDirections[client.sessionId] = {
         up: false,

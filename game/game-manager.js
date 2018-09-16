@@ -1,21 +1,24 @@
 const { LOBBY_TIME } = require('../config.js')
 
 class GameManager {
-  constructor (gameState, questions) {
+  constructor (gameState) {
     this.gameState = gameState
-
-    setTimeout(() => this.runGame(questions), LOBBY_TIME)
+    this.running = false
   }
 
   runGame (rounds) {
-    let time = 0
+    let time = LOBBY_TIME
+
+    this.running = true
 
     rounds.forEach((round) => {
       setTimeout(() => this.runRound(round), time * 1000)
       time += round.time
     })
 
-    this.gameState.end = true
+    setTimeout(() => {
+      this.gameState.end = true
+    }, time)
     // TODO: send matching payload
   }
 
