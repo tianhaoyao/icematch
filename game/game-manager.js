@@ -1,5 +1,5 @@
 const { LOBBY_TIME } = require('../config.js')
-const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4')
 
 class GameManager {
   constructor (gameState) {
@@ -32,17 +32,17 @@ class GameManager {
     this.gameState.time = round.time
   }
 
-  matchPlayers(){
+  matchPlayers () {
     const players = this.gameState.players
     const keys = Object.keys(players)
-    console.log(keys);
-    for (let i = 0; i < keys.length; i+=2){
+    console.log(keys)
+    for (let i = 0; i < keys.length; i += 2) {
       const uuid = uuidv4()
-      console.log(uuid);
-      players[keys[i]].match = {'id': uuid, image: this.gameState.players[keys[i+1]].image}
-      players[keys[i+1]].match = {'id': uuid, image: this.gameState.players[keys[i]].image}
+      if (players[keys[i]] && players[keys[i + 1]]) {
+        players[keys[i]].match = { 'id': uuid, image: this.gameState.players[keys[i + 1]].image }
+        players[keys[i + 1]].match = { 'id': uuid, image: this.gameState.players[keys[i]].image }
+      }
     }
-    console.log(players);
   }
 }
 

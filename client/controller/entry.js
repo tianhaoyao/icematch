@@ -37,7 +37,6 @@ $input.addEventListener('change', () => {
       const client = new Colyseus.Client(`ws://${window.location.host}`)
       const room = client.join('icematch', { player: true, head: res.data.url })
 
-
       const controller = new TouchController(room, virtuals)
       const touchMap = {
         up: 'up',
@@ -52,9 +51,9 @@ $input.addEventListener('change', () => {
     })
 })
 
-function moveRooms(change, sessionId){
-  if (change.path.player === sessionId){
-    if (change.value.id && change.value.image){
+function moveRooms (change, sessionId) {
+  if (change.path.player === sessionId) {
+    if (change.value.id && change.value.image) {
       window.location.href = `http://${window.location.host}/chat?=${change.value.id}&image=${change.value.image}`
     }
   }
