@@ -34,7 +34,7 @@ class IceRoom extends Room {
       this.updatePlayerDirection(client, direction, data[direction])
     }
 
-    console.log(clien.sessionId + data);
+    console.log(client.sessionId + data);
   }
 
   update () {
