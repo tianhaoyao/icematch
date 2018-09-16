@@ -24,11 +24,13 @@ class IceRoom extends Room {
   }
 
   onMessage (client, data) {
-    const direction = Object.keys(data)[0]
-    this.updatePlayerDirection(client, direction, data[direction])
+    if (this.state.getPlayer(client.sessionId)) {
+      const direction = Object.keys(data)[0]
+      this.updatePlayerDirection(client, direction, data[direction])
 
-    console.log(`Message from ${client.sessionId}:`)
-    console.log(data)
+      console.log(`Message from ${client.sessionId}:`)
+      console.log(data)
+    }
   }
 
   update () {
@@ -56,6 +58,10 @@ class IceRoom extends Room {
     delete this.playerDirections[client.sessionId]
 
     console.log(`Player ${client.sessionId} left!`)
+  }
+
+  onDispose () {
+    this.state.destroy()
   }
 
   updatePlayerDirection (client, direction, bool) {
