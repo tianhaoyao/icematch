@@ -6,13 +6,14 @@ class IceRoom extends Room {
   onInit () {
     this.setState(new GameState())
     this.playerDirections = {}
-
     this.setSimulationInterval(() => this.update())
+    this.lobbyTimerStarted = false
   }
 
   onJoin (client, options) {
     if (options.player) {
       if (this.state.mode.getMode() === 'lobby') {
+        this.startLobby()
         this.state.addPlayer(client)
         this.playerDirections[client.sessionId] = {
           up: false,
@@ -61,6 +62,13 @@ class IceRoom extends Room {
 
   updatePlayerDirection (client, direction, bool) {
     this.playerDirections[client.sessionId][direction] = bool
+  }
+
+  startLobby () {
+    if (!this.lobbyTimerStarted) {
+      this.state.mode.startLobbyTimer()
+      this.lobbyTimerStarted = true
+    }
   }
 }
 

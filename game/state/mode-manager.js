@@ -3,6 +3,9 @@ const { LOBBY_TIME } = require('../../config.js')
 class GameModeManager {
   constructor () {
     this.setLobby()
+  }
+
+  startLobbyTimer () {
     setTimeout(() => { this.setGame() }, LOBBY_TIME)
   }
 
