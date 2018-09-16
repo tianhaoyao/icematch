@@ -1,34 +1,38 @@
 const { Room } = require('colyseus')
-const {GameState} = require('../state/icematch')
+const { GameState } = require('../state/icematch')
 const { SCREEN_WIDTH, SCREEN_HEIGHT, SPRITE_HEIGHT, SPRITE_WIDTH } = require('../../config.js')
 
 class IceRoom extends Room {
   onInit () {
     this.setState(new GameState())
     this.playerDirections = {}
-
     this.setSimulationInterval(() => this.update())
+    this.lobbyTimerStarted = false
   }
 
   onJoin (client, options) {
     if (options.player) {
-      this.state.addPlayer(client)
-      this.playerDirections[client.sessionId] = {
-        up: false,
-        down: false,
-        left: false,
-        right: false
+      if (this.state.mode.getMode() === 'lobby') {
+        this.startLobby()
+        this.state.addPlayer(client)
+        this.playerDirections[client.sessionId] = {
+          up: false,
+          down: false,
+          left: false,
+          right: false
+        }
+        console.log(`Player ${client.sessionId} joined!`)
+      } else {
+        console.log(`Player ${client.sessionId} cannot join! Game in progress.`)
       }
-      console.log(`Player ${client.sessionId} joined!`)
     }
   }
 
   onMessage (client, data) {
-    const direction = Object.keys(data)[0]
-    this.updatePlayerDirection(client, direction, data[direction])
-
-    console.log(`Message from ${client.sessionId}:`)
-    console.log(data)
+    if (this.playerDirections[client.sessionId]) {
+      const direction = Object.keys(data)[0]
+      this.updatePlayerDirection(client, direction, data[direction])
+    }
   }
 
   update () {
@@ -60,6 +64,13 @@ class IceRoom extends Room {
 
   updatePlayerDirection (client, direction, bool) {
     this.playerDirections[client.sessionId][direction] = bool
+  }
+
+  startLobby () {
+    if (!this.lobbyTimerStarted) {
+      this.state.mode.startLobbyTimer()
+      this.lobbyTimerStarted = true
+    }
   }
 }
 
