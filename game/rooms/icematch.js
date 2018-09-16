@@ -8,6 +8,7 @@ class IceRoom extends Room {
     this.playerDirections = {}
 
     this.setSimulationInterval(() => this.update())
+         this.lobbyTimerStarted = false
   }
 
   onJoin (client, options) {
