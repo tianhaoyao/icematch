@@ -59,8 +59,6 @@ class View {
     sprite.x = x
     sprite.y = y
 
-    console.log('create sprite')
-
     this.players[id] = new Player(x, y, '../../static/images/photo.png', () => {
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
@@ -82,7 +80,6 @@ class View {
   }
 
   updatePosition (id, dimension, value) {
-    console.log(id, dimension, value)
     this.players[id][dimension] = value
   }
 }
