@@ -90,11 +90,11 @@ class View {
       align: 'center',
       fill: 'black',
       wordWrap: true,
-      wordWrapWidth: 300
+      wordWrapWidth: 500
     })
 
     this.question = new PIXI.Text(question, style)
-    this.x = SCREEN_WIDTH / 2 - 150
+    this.x = SCREEN_WIDTH / 2 - 250
     this.question.y = 0
 
     this.app.stage.addChild(this.question)
