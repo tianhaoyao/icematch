@@ -1,4 +1,4 @@
-const {Player} = require('./player')
+const Player = require('./player')
 const { VELOCITY, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_WIDTH } = require('../../config.js')
 
 const ZONES = {
