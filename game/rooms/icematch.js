@@ -60,10 +60,6 @@ class IceRoom extends Room {
     console.log(`Player ${client.sessionId} left!`)
   }
 
-  onDispose () {
-    this.state.destroy()
-  }
-
   updatePlayerDirection (client, direction, bool) {
     this.playerDirections[client.sessionId][direction] = bool
   }

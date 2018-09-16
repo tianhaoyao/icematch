@@ -56,12 +56,6 @@ class GameState {
   resetScores (sessionId) {
     this.scores = {}
   }
-
-  destroy () {
-    for (const playerId in this.players) {
-      delete this.players[playerId]
-    }
-  }
 }
 
 module.exports = GameState
