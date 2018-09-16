@@ -1,6 +1,6 @@
 'use strict'
 
-import * as Colyseus from 'colyseus'
+import * as Colyseus from 'colyseus.js'
 import uuid from 'uuid/v1'
 
 const client = new Colyseus.Client(`ws://${window.location.host}`)
@@ -13,7 +13,10 @@ const stamp = uuid()
 $('#send').addEventListener('click', (e) => {
   e.preventDefault()
 
-  const message = $('#input').value
+  const $input = $('#input')
+  const message = $input.value
+
+  $input.value = ''
 
   const payload = {
     owner: stamp,
@@ -24,7 +27,7 @@ $('#send').addEventListener('click', (e) => {
   room.send(payload)
 })
 
-room.listen(':matchId/:index', (change) => {
+room.listen('matches/:matchId/:index', (change) => {
   if (change.value.matchId === matchId) {
     postMessage(change.value)
   }
@@ -32,10 +35,10 @@ room.listen(':matchId/:index', (change) => {
 
 function postMessage (value) {
   const $li = document.createElement('li')
-  const $out = $('output')
+  const $out = $('#output')
   $li.innerHTML = value.message
 
-  if (value.sender === stamp) {
+  if (value.owner === stamp) {
     $li.classList.add('me')
   } else {
     $li.classList.add('you')
