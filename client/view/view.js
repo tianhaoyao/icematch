@@ -42,21 +42,33 @@ class View {
   }
 
   createPlayer (id, x, y) {
-    const sprite = PIXI.Sprite.fromImage(Resources.playerSprite)
+    const sprite = new PIXI.Container()
+    const head = PIXI.Texture.fromImage('photo.png')
+    const body = PIXI.Texture.fromImage(Resources.playerSprite)
+
+    head.anchor.set(0.5)
+    head.x = 0
+    head.y = 0
+    sprite.add(head)
+
+    body.anchor.set(0.5)
+    body.x = 0
+    body.y = 32
+    sprite.add(body)
 
     sprite.x = x
     sprite.y = y
 
     console.log('create sprite')
     
-    this.players[id] = new Player(x, y, 'file.png',  () => {
+    this.players[id] = new Player(x, y, 'photo.png',  () => {
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
       } else {
         return ZONES.NO
       }})
 
-    this.players[id] = new Player(x, y, 'file.png')
+    this.players[id] = new Player(x, y, 'photo.png')
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)
