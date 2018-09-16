@@ -87,11 +87,15 @@ class View {
     const style = new PIXI.TextStyle({
       fontFamily: 'Arial',
       fontSize: 36,
+      align: 'center',
       fill: 'black'
     })
 
     this.question = new PIXI.Text(question, style)
-    this.question.centerX
+    this.x = SCREEN_WIDTH / 2
+    this.question.centerX({
+      SCREEN_WIDTH
+    })
     this.question.y = 0
 
     this.app.stage.addChild(this.question)
@@ -103,11 +107,16 @@ class View {
     const style = new PIXI.TextStyle({
       fontFamily: 'Arial',
       fontSize: 36,
+      align: 'center',
       fill: 'black'
     })
 
     this.answer1 = new PIXI.Text(answer, style)
     this.answer1.x = SCREEN_WIDTH / 4
+    const leftCenter = SCREEN_WIDTH / 2
+    this.answer1.centerX({
+      leftCenter
+    })
     this.answer1.y = SCREEN_HEIGHT / 8
 
     this.app.stage.addChild(this.answer1)
@@ -119,11 +128,16 @@ class View {
     const style = new PIXI.TextStyle({
       fontFamily: 'Arial',
       fontSize: 36,
+      align: 'center',
       fill: 'black'
     })
 
     this.answer2 = new PIXI.Text(answer, style)
-    this.answer2.x = (SCREEN_WIDTH / 4)*3
+    this.answer2.x = SCREEN_WIDTH / 2
+    const rightCenter = SCREEN_WIDTH / 2
+    this.answer2.centerX({
+      rightCenter
+    })
     this.answer2.y = SCREEN_HEIGHT / 8
 
     this.app.stage.addChild(this.answer2)
