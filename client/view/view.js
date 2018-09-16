@@ -82,6 +82,22 @@ class View {
   updatePosition (id, dimension, value) {
     this.players[id][dimension] = value
   }
+
+  setQuestion (question) {
+    console.log(question)
+  }
+
+  setAnswer1 (answer) {
+    console.log(answer)
+  }
+
+  setAnswer2 (answer) {
+    console.log(answer)
+  }
+
+  setTime (time) {
+    console.log(time)
+  }
 }
 
 module.exports = View
