@@ -16,6 +16,7 @@ class GameManager {
     })
 
     this.gameState.end = true
+    // TODO: send matching payload
   }
 
   runRound (round) {
