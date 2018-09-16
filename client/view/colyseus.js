@@ -1,5 +1,8 @@
 import * as Colyseus from 'colyseus.js'
 import View from './view'
+import Redirect from '../force-http'
+
+Redirect()
 
 const view = new View()
 const client = new Colyseus.Client(`ws://${window.location.host}`)

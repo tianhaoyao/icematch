@@ -6,6 +6,9 @@ import * as axios from 'axios'
 import * as Colyseus from 'colyseus.js'
 import TouchController from './controller'
 import virtuals from './virtuals'
+import Redirect from '../force-http'
+
+Redirect()
 
 const client = new Colyseus.Client(`ws://${window.location.host}`)
 const room = client.join('icematch', { player: true })
