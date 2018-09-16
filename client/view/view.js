@@ -88,6 +88,9 @@ class View {
   }
 
   setQuestion (question) {
+
+    this.app.stage.removeChild(this.question)
+
     this.question.text = question
     this.question.x = SCREEN_WIDTH / 2
     this.question.y = 0
