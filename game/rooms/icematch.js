@@ -12,7 +12,6 @@ class IceRoom extends Room {
   }
 
   onJoin (client, options) {
-    if (options.player) {
       if (this.state.mode.getMode() === 'lobby') {
         this.startLobby()
         this.state.addPlayer(client)
@@ -25,7 +24,7 @@ class IceRoom extends Room {
         console.log(`Player ${client.sessionId} joined!`)
       } else {
         console.log(`Player ${client.sessionId} cannot join! Game in progress.`)
-      }
+      
     }
   }
 
