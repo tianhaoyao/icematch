@@ -3,8 +3,7 @@ import {centerX} from 'pixi-center'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
 import { cosineInterp } from './interp'
-import ZONES from '../../game/state/icematch'
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND } from '../../config.js'
+import { SCREEN_WIDTH, SCREEN_HEIGHT, HEAD_HEIGHT } from '../../config.js'
 
 class View {
   constructor () {
@@ -59,7 +58,7 @@ class View {
     sprite.addChild(headSprite)
 
     bodySprite.x = 0
-    bodySprite.y = 32
+    bodySprite.y = HEAD_HEIGHT
     sprite.addChild(bodySprite)
 
     sprite.x = x

@@ -24,7 +24,6 @@ class GameManager {
   }
 
   runRound (round) {
-    console.log(round)
     this.gameState.question = round.question
     this.gameState.answer1 = round.answer1
     this.gameState.answer2 = round.answer2
