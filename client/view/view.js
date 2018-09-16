@@ -158,6 +158,8 @@ class View {
     this.time.y = SCREEN_HEIGHT / 6
 
     this.app.stage.addChild(this.time)
+
+    console.log(time)
   }
 }
 
