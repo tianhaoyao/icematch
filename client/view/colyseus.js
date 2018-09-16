@@ -44,6 +44,6 @@ function setAnswer2 (change) {
 
 function setTime (change) {
   for (let t = change.value; t >= 0; t--) {
-    setTimeout(() => { view.setTime(10-t) }, 1000*t)
+    setTimeout(() => { view.setTime(10 - t) }, 1000 * t)
   }
 }

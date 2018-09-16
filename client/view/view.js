@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js'
-import {centerX} from 'pixi-center'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
 import { cosineInterp } from './interp'
@@ -22,11 +21,6 @@ class View {
 
     this.players = {}
     this.sprites = {}
-
-    this.question;
-    this.answer1;
-    this.answer2;
-    this.time;
 
     document.getElementById('view').appendChild(this.app.view)
     this.renderLoop()
@@ -81,7 +75,6 @@ class View {
   }
 
   setQuestion (question) {
-
     this.app.stage.removeChild(this.question)
 
     const style = new PIXI.TextStyle({
@@ -95,7 +88,7 @@ class View {
 
     this.question = new PIXI.Text(question, style)
     if (question.length < 32) {
-      this.question.x = (SCREEN_WIDTH / 2) - (250 - (question.length/2)*16)
+      this.question.x = (SCREEN_WIDTH / 2) - (250 - (question.length / 2) * 16)
     } else {
       this.question.x = (SCREEN_WIDTH / 2) - 250
     }
@@ -124,7 +117,6 @@ class View {
   }
 
   setAnswer2 (answer) {
-
     this.app.stage.removeChild(this.answer2)
 
     const style = new PIXI.TextStyle({
@@ -144,13 +136,13 @@ class View {
   }
 
   setTime (time) {
-     this.app.stage.removeChild(this.time)
+    this.app.stage.removeChild(this.time)
 
     const style = new PIXI.TextStyle({
       fontFamily: 'Arial',
       fontSize: 36,
       align: 'center',
-      fill: 'black',
+      fill: 'black'
     })
 
     this.time = new PIXI.Text(time, style)
