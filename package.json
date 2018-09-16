@@ -11,7 +11,8 @@
     "lint": "standard",
     "build": "parcel build ./client/index.html --public-url /static --out-dir static && ./scripts/install.sh",
     "dev": "nodemon ./bin/server",
-    "start": "node ./bin/server"
+    "start": "node ./bin/server",
+    "postinstall": "yarn build"
   },
   "devDependencies": {
     "axios": "^0.18.0",
