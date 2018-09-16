@@ -60,13 +60,8 @@ class View {
     sprite.y = y
 
     console.log('create sprite')
-<<<<<<< HEAD
-    
+    s 
     this.players[id] = new Player(x, y, 'photo.png',  () => {
-=======
-
-    this.players[id] = new Player(x, y, 'file.png', () => {
->>>>>>> c30ea67f00a24ab4f6c60c3f2ea755f2815d8db9
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
       } else {
