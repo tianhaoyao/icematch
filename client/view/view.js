@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js'
-import {CenterX} from 'pixi-center'
+import {centerX} from 'pixi-center'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
 import { cosineInterp } from './interp'
@@ -87,12 +87,11 @@ class View {
     const style = new PIXI.TextStyle({
       fontFamily: 'Arial',
       fontSize: 36,
-      align: 'center',
       fill: 'black'
     })
 
     this.question = new PIXI.Text(question, style)
-    this.question.CenterX()
+    this.question.centerX()
     this.question.y = 0
 
     this.app.stage.addChild(this.question)
