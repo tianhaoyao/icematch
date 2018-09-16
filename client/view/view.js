@@ -83,7 +83,7 @@ class View {
       fill: 'black'
     })
 
-    const richText = new PIXI.Text("question", style)
+    const richText = new PIXI.Text(question, style)
     richText.x = SCREEN_WIDTH / 2
     richText.y = 0
 
