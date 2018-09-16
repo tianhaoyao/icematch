@@ -22,4 +22,8 @@ app.get('/view', (req, res) => {
   res.sendFile(path.join(__dirname, './static/view/index.html'))
 })
 
+app.get('/chat', (req, res) => {
+  res.sendFile(path.join(__dirname, './static/chat/index.html'))
+})
+
 module.exports = app
