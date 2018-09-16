@@ -1,9 +1,11 @@
 const Player = require('./player')
-const { VELOCITY, YES_BOUND, NO_BOUND } = require('../../config.js')
+const { VELOCITY, YES_BOUND, NO_BOUND, SCREEN_HEIGHT } = require('../../config.js')
+const GameModeManager = require('./mode-manager')
 
 class GameState {
   constructor () {
     this.players = {}
+    this.mode = new GameModeManager()
   }
 
   addPlayer (client) {

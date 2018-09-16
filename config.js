@@ -6,6 +6,7 @@ const SPRITE_HEIGHT = 64
 const VELOCITY = 2
 const YES_BOUND = SCREEN_WIDTH / 4
 const NO_BOUND = (SCREEN_WIDTH / 4) * 3
+const LOBBY_TIME = 5000
 
 module.exports = {
   SCREEN_WIDTH,
@@ -14,5 +15,6 @@ module.exports = {
   SPRITE_HEIGHT,
   VELOCITY,
   YES_BOUND,
-  NO_BOUND
+  NO_BOUND,
+  LOBBY_TIME
 }
