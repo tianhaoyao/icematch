@@ -1,4 +1,3 @@
-const GameModeManager = require('./mode-manager')
 const Player = require('./player')
 const { VELOCITY, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_WIDTH } = require('../../config.js')
 
@@ -10,8 +9,8 @@ const ZONES = {
 class GameState {
   constructor () {
     this.players = {}
-    this.mode = new GameModeManager()
     this.scores = {}
+    this.end = false
   }
 
   addPlayer (client, head) {

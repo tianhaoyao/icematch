@@ -1,21 +1,24 @@
 const { Room } = require('colyseus')
 const { GameState } = require('../state/icematch')
+const GameManager = require('../game-manager')
 const { SCREEN_WIDTH, SCREEN_HEIGHT, SPRITE_HEIGHT, SPRITE_WIDTH } = require('../../config.js')
+// const questions = require('../questions')
 
 class IceRoom extends Room {
   onInit () {
-    this.setState(new GameState())
-    this.playerDirections = {}
+    const state = new GameState()
+    // eslint-disable-next-line
+    const gameManager = new GameManager(state, [])
 
+    this.setState(state)
+    this.playerDirections = {}
     this.setSimulationInterval(() => this.update())
-    this.lobbyTimerStarted = false
   }
 
   onJoin (client, options) {
     console.log(options.head)
 
     if (options.player) {
-      this.startLobby()
       this.state.addPlayer(client, options.head)
       this.playerDirections[client.sessionId] = {
         up: false,
@@ -62,13 +65,6 @@ class IceRoom extends Room {
     delete this.playerDirections[client.sessionId]
 
     console.log(`Player ${client.sessionId} left!`)
-  }
-
-  startLobby () {
-    if (!this.lobbyTimerStarted) {
-      this.state.mode.startLobbyTimer()
-      this.lobbyTimerStarted = true
-    }
   }
 
   updatePlayerDirection (client, direction, bool) {
