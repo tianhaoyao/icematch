@@ -8,7 +8,11 @@ const room = client.join('chat')
 
 const $ = slt => document.querySelector(slt)
 const matchId = new URL(window.location).searchParams.get('matchId')
+const image = new URL(window.location).searchParams.get('image')
 const stamp = uuid()
+
+$('#pic').src = image
+$('#intro').style.display = 'initial'
 
 $('#send').addEventListener('click', (e) => {
   e.preventDefault()
