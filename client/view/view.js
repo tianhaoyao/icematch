@@ -2,8 +2,7 @@ import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
 import { cosineInterp } from './interp'
-import ZONES from '../../game/state/icematch'
-import { SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND } from '../../config.js'
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../config.js'
 
 class View {
   constructor () {
