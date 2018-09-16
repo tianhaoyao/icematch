@@ -7,11 +7,11 @@ import { SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND } from '../../config
 
 class View {
   constructor () {
-    this.app = new PIXI.Application({ backgroundColor: 0x66ff99, width: SCREEN_WIDTH, height: SCREEN_HEIGHT })
+    this.app = new PIXI.Application({ backgroundColor: 0x99e6ff, width: SCREEN_WIDTH, height: SCREEN_HEIGHT })
 
     const graphics = new PIXI.Graphics()
 
-    graphics.beginFill(0xff5050)
+    graphics.beginFill(0xffa17a)
     graphics.moveTo(SCREEN_WIDTH / 2, 0)
     graphics.lineTo(SCREEN_WIDTH, 0)
     graphics.lineTo(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -42,8 +42,6 @@ class View {
   }
 
   createPlayer (id, x, y, url) {
-    console.log(url)
-
     const sprite = new PIXI.Container()
     const head = PIXI.Texture.from(url)
     const body = PIXI.Texture.fromImage(Resources.playerSprite)
@@ -61,14 +59,7 @@ class View {
     sprite.x = x
     sprite.y = y
 
-    this.players[id] = new Player(x, y, '../../static/images/photo.png', () => {
-      if (x < SPAWN_ZONE_LEFT_BOUND) {
-        return ZONES.YES
-      } else {
-        return ZONES.NO
-      }
-    })
-
+    this.players[id] = new Player(x, y, '')
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)

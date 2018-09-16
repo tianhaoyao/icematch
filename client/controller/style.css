@@ -19,9 +19,9 @@ body {
   background-size: 150% 150%;
   font-weight: 200;
 
-  -webkit-animation: Pretty 10s ease infinite;
-  -moz-animation: Pretty 10s ease infinite;
-  animation: Pretty 10s ease infinite;
+  -webkit-animation: Pretty 5s ease infinite;
+  -moz-animation: Pretty 5s ease infinite;
+  animation: Pretty 5s ease infinite;
 }
 
 @-webkit-keyframes Pretty {
