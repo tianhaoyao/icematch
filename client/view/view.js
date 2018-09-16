@@ -23,7 +23,7 @@ class View {
     this.players = {}
     this.sprites = {}
 
-    document.body.appendChild(this.app.view)
+    document.getElementById('view').appendChild(this.app.view)
     this.renderLoop()
   }
 
