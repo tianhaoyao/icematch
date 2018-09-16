@@ -5,7 +5,6 @@ Redirect()
 
 const md = new MobileDetect(window.navigator.userAgent)
 
-
 if (md.mobile() !== null || md.phone() !== null) {
   window.location.pathname = '/controller'
 } else {

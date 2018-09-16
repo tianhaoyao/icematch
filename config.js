@@ -1,7 +1,7 @@
 'use strict'
 
-const SCREEN_WIDTH = 800
-const SCREEN_HEIGHT = 600
+const SCREEN_WIDTH = 1600
+const SCREEN_HEIGHT = 800
 const SPRITE_WIDTH = 32
 const SPRITE_HEIGHT = 64
 const VELOCITY = 2

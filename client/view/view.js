@@ -7,7 +7,7 @@ import { SCREEN_WIDTH, SCREEN_HEIGHT, SPAWN_ZONE_LEFT_BOUND } from '../../config
 
 class View {
   constructor () {
-    this.app = new PIXI.Application({ backgroundColor: 0x66ff99 })
+    this.app = new PIXI.Application({ backgroundColor: 0x66ff99, width: SCREEN_WIDTH, height: SCREEN_HEIGHT })
 
     const graphics = new PIXI.Graphics()
 
@@ -23,7 +23,7 @@ class View {
     this.players = {}
     this.sprites = {}
 
-    document.body.appendChild(this.app.view)
+    document.getElementById('view').appendChild(this.app.view)
     this.renderLoop()
   }
 
