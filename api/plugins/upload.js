@@ -3,10 +3,10 @@
 const { Router } = require('express')
 const fileUpload = require('express-fileupload')
 const simpleThumbnail = require('simple-thumbnail')
-const toStream = require('buffer-to-stream')
 const ffmpegStatic = require('ffmpeg-static')
 const path = require('path')
 const uuid = require('uuid/v1')
+const sharp = require('sharp')
 
 const router = Router()
 const fileSize = 10 * 1024 * 1024
@@ -21,6 +21,7 @@ async function upload (req, res) {
 
   const { picture } = req.files
   const fileuuid = uuid()
+  const thumbuuid = uuid()
   const getUrl = filename => `http://${req.headers.host}/static/images/${filename}.jpg`
 
   if (picture.mimetype !== 'image/jpeg') {
@@ -29,8 +30,11 @@ async function upload (req, res) {
 
   try {
     const picturePath = path.join(__dirname, `../../static/images/${fileuuid}.jpg`)
+    const thumbPath = path.join(__dirname, `../../static/images/${thumbuuid}.jpg`)
 
-    await simpleThumbnail(toStream(picture.data), picturePath, '?x32', {
+    await sharp(picture.data).rotate(-90).toFile(picturePath)
+
+    await simpleThumbnail(picturePath, thumbPath, '?x32', {
       path: ffmpegStatic.path
     })
   } catch (err) {
@@ -40,7 +44,7 @@ async function upload (req, res) {
   }
 
   res.status(200).json({
-    url: getUrl(fileuuid)
+    url: getUrl(thumbuuid)
   })
 }
 

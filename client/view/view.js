@@ -41,9 +41,11 @@ class View {
     })
   }
 
-  createPlayer (id, x, y) {
+  createPlayer (id, x, y, url) {
+    console.log(url)
+
     const sprite = new PIXI.Container()
-    const head = PIXI.Texture.fromImage('../../static/images/photo.png')
+    const head = PIXI.Texture.from(url)
     const body = PIXI.Texture.fromImage(Resources.playerSprite)
     const headSprite = new PIXI.Sprite(head)
     const bodySprite = new PIXI.Sprite(body)
@@ -67,7 +69,6 @@ class View {
       }
     })
 
-    this.players[id] = new Player(x, y, '../../static/images/photo.png')
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)
