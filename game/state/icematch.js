@@ -1,5 +1,10 @@
-const Player = require('./player')
-const { VELOCITY, YES_BOUND, NO_BOUND, SCREEN_HEIGHT } = require('../../config.js')
+const {Player} = require('./player')
+const { VELOCITY, SPAWN_ZONE_LEFT_BOUND, SPAWN_ZONE_RIGHT_BOUND, SCREEN_HEIGHT, SCREEN_WIDTH, SPRITE_WIDTH } = require('../../config.js')
+
+const ZONES = {
+  YES: 0,
+  NO: 1
+}
 
 class GameState {
   constructor () {
@@ -8,9 +13,15 @@ class GameState {
   }
 
   addPlayer (client) {
-    const x = Math.floor(Math.random() * (NO_BOUND - YES_BOUND) + YES_BOUND)
+    const x = Math.floor(Math.random() * (SPAWN_ZONE_RIGHT_BOUND - SPAWN_ZONE_LEFT_BOUND) + SPAWN_ZONE_LEFT_BOUND)
     const y = Math.floor(Math.random() * SCREEN_HEIGHT)
-    this.players[client.sessionId] = new Player(x, y, 'file.png')
+    this.players[client.sessionId] = new Player(x, y, 'file.png', () => {
+      if (x < SPAWN_ZONE_LEFT_BOUND) {
+        return ZONES.YES
+      } else {
+        return ZONES.NO
+      }
+    })
   }
 
   removePlayer (client) {
@@ -37,12 +48,14 @@ class GameState {
     return this.players[sessionId]
   }
 
-  addTrue (sessionId) {
-    this.scores[sessionId].add(true)
-  }
+  updateZone (sessionId) {
+    if (this.players[sessionId].x + (SPRITE_WIDTH/2) < SCREEN_WIDTH/2){
+      this.scores[sessionId].add(true)
+    } else {
+     this.scores[sessionId].add(false)
+    }
 
-  addFalse (sessionId) {
-    this.scores[sessionId].add(false)
+    console.log(this.players[sessionId].zone)
   }
 
   getScore (sessionId) {
@@ -58,4 +71,7 @@ class GameState {
   }
 }
 
-module.exports = GameState
+module.exports = {
+  GameState,
+  ZONES
+}
