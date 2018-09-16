@@ -98,11 +98,35 @@ class View {
   }
 
   setAnswer1 (answer) {
-    console.log(answer)
+    this.app.stage.removeChild(this.answer1)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      fill: 'black'
+    })
+
+    this.answer1 = new PIXI.Text(answer, style)
+    this.answer1.centerX()
+    this.answer1.y = 0
+
+    this.app.stage.addChild(this.answer1)
   }
 
   setAnswer2 (answer) {
-    console.log(answer)
+    this.app.stage.removeChild(this.answer1)
+
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      fill: 'black'
+    })
+
+    this.answer2 = new PIXI.Text(answer, style)
+    this.answer2.centerX()
+    this.answer2.y = 0
+
+    this.app.stage.addChild(this.answer2)
   }
 
   setTime (time) {
