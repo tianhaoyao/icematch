@@ -43,25 +43,25 @@ class View {
 
   createPlayer (id, x, y) {
     const sprite = new PIXI.Container()
-    const head = PIXI.Texture.fromImage('photo.png')
+    const head = PIXI.Texture.fromImage('../../static/images/photo.png')
     const body = PIXI.Texture.fromImage(Resources.playerSprite)
+    const headSprite = new PIXI.Sprite(head);
+    const bodySprite = new PIXI.Sprite(body);
 
-    head.anchor.set(0.5)
-    head.x = 0
-    head.y = 0
-    sprite.add(head)
+    headSprite.x = 0
+    headSprite.y = 0
+    sprite.addChild(headSprite)
 
-    body.anchor.set(0.5)
-    body.x = 0
-    body.y = 32
-    sprite.add(body)
+    bodySprite.x = 0
+    bodySprite.y = 32
+    sprite.addChild(bodySprite)
 
     sprite.x = x
     sprite.y = y
 
     console.log('create sprite')
-    s 
-    this.players[id] = new Player(x, y, 'photo.png',  () => {
+    
+    this.players[id] = new Player(x, y, '../../static/images/photo.png',  () => {
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
       } else {
@@ -69,7 +69,7 @@ class View {
       }
     })
 
-    this.players[id] = new Player(x, y, 'photo.png')
+    this.players[id] = new Player(x, y, '../../static/images/photo.png')
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)
