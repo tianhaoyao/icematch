@@ -1,5 +1,5 @@
 const { Room } = require('colyseus')
-const GameState = require('../state/icematch')
+const { GameState } = require('../state/icematch')
 const { SCREEN_WIDTH, SCREEN_HEIGHT, SPRITE_HEIGHT, SPRITE_WIDTH } = require('../../config.js')
 
 class IceRoom extends Room {
@@ -29,8 +29,10 @@ class IceRoom extends Room {
   }
 
   onMessage (client, data) {
-    const direction = Object.keys(data)[0]
-    this.updatePlayerDirection(client, direction, data[direction])
+    if (this.playerDirections[client.sessionId]) {
+      const direction = Object.keys(data)[0]
+      this.updatePlayerDirection(client, direction, data[direction])
+    }
   }
 
   update () {
