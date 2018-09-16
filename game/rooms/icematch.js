@@ -61,7 +61,14 @@ class IceRoom extends Room {
 
     console.log(`Player ${client.sessionId} left!`)
   }
-
+  
+     startLobby () {
+    if (!this.lobbyTimerStarted) {
+      this.state.mode.startLobbyTimer()
+      this.lobbyTimerStarted = true
+    }
+  } 
+    
   updatePlayerDirection (client, direction, bool) {
     this.playerDirections[client.sessionId][direction] = bool
   }
