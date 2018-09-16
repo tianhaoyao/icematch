@@ -45,6 +45,18 @@ class GameState {
     this.scores[sessionId].add(false)
   }
 
+  getScore(sessionId) {
+    return this.scores[sessionId]
+  }
+
+  getScores() {
+    return this.scores
+  }
+
+  resetScores(sessionId) {
+    this.scores = {}
+  }
+
 
 }
 
