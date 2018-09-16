@@ -84,7 +84,17 @@ class View {
   }
 
   setQuestion (question) {
-    console.log(question)
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center'
+    })
+
+    const richText = new PIXI.Text(question, style)
+    richText.x = SCREEN_WIDTH
+    richText.y = 0
+
+    this.app.stage.addChild(richText)
   }
 
   setAnswer1 (answer) {
