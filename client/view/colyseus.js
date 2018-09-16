@@ -10,6 +10,10 @@ const room = client.join('icematch', { player: false })
 
 room.listen('players/:id', (change) => { updatePlayer(change) })
 room.listen('players/:id/:attribute', (change) => { updateAttribute(change) })
+room.listen('question', (change) => { setQuestion(change) })
+room.listen('answer1', (change) => { setAnswer1(change) })
+room.listen('answer2', (change) => { setAnswer2(change) })
+room.listen('time', (change) => { setTime(change) })
 
 function updatePlayer (change) {
   if (change.operation === 'add') {
@@ -24,4 +28,20 @@ function updateAttribute (change) {
   if (change.operation === 'replace') {
     view.updatePosition(change.path.id, change.path.attribute, change.value)
   }
+}
+
+function setQuestion (change) {
+  view.setQuestion(change.value)
+}
+
+function setAnswer1 (change) {
+  view.setAnswer1(change.value)
+}
+
+function setAnswer2 (change) {
+  view.setAnswer2(change.value)
+}
+
+function setTime (change) {
+  view.setTime(change.value)
 }

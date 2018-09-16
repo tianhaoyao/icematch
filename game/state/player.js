@@ -1,4 +1,4 @@
-import { SPRITE_WIDTH, SCREEN_WIDTH } from '../../config.js'
+const { SPRITE_WIDTH, SCREEN_WIDTH } = require('../../config.js')
 
 class Player {
   constructor (x, y, image) {
