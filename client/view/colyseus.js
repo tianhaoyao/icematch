@@ -2,7 +2,7 @@ import * as Colyseus from 'colyseus.js'
 import View from './view'
 
 const view = new View()
-const client = new Colyseus.Client('ws://localhost:8080')
+const client = new Colyseus.Client(`ws://${window.location.host}`)
 const room = client.join('icematch', { player: false })
 
 room.listen('players/:id', (change) => { updatePlayer(change) })
@@ -18,7 +18,7 @@ function updatePlayer (change) {
 }
 
 function updateAttribute (change) {
-  if (change.operation === "replace"){
+  if (change.operation === 'replace') {
     view.updatePosition(change.path.id, change.path.attribute, change.value)
   }
 }
