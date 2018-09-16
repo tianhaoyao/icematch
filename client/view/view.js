@@ -84,7 +84,7 @@ class View {
     })
 
     const richText = new PIXI.Text("question", style)
-    richText.x = SCREEN_WIDTH
+    richText.x = SCREEN_WIDTH / 2
     richText.y = 0
 
     this.app.stage.addChild(richText)
