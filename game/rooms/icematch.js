@@ -15,16 +15,16 @@ class IceRoom extends Room {
     console.log(options.head)
 
     if (options.player) {
-        this.startLobby()
-        this.state.addPlayer(client, options.head)
-        this.playerDirections[client.sessionId] = {
-          up: false,
-          down: false,
-          left: false,
-          right: false
-        }
-        console.log(`Player ${client.sessionId} joined!`)
+      this.startLobby()
+      this.state.addPlayer(client, options.head)
+      this.playerDirections[client.sessionId] = {
+        up: false,
+        down: false,
+        left: false,
+        right: false
       }
+      console.log(`Player ${client.sessionId} joined!`)
+    }
   }
 
   onMessage (client, data) {
