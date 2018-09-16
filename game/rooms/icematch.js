@@ -6,6 +6,7 @@ class IceRoom extends Room {
   onInit () {
     this.setState(new GameState())
     this.playerDirections = {}
+
     this.setSimulationInterval(() => this.update())
     this.lobbyTimerStarted = false
   }
@@ -32,6 +33,9 @@ class IceRoom extends Room {
     if (this.state.getPlayer(client.sessionId)) {
       const direction = Object.keys(data)[0]
       this.updatePlayerDirection(client, direction, data[direction])
+
+      console.log(`Message from ${client.sessionId}:`)
+      console.log(data)
     }
   }
 
@@ -62,15 +66,15 @@ class IceRoom extends Room {
     console.log(`Player ${client.sessionId} left!`)
   }
 
-  updatePlayerDirection (client, direction, bool) {
-    this.playerDirections[client.sessionId][direction] = bool
-  }
-
   startLobby () {
     if (!this.lobbyTimerStarted) {
       this.state.mode.startLobbyTimer()
       this.lobbyTimerStarted = true
     }
+  }
+
+  updatePlayerDirection (client, direction, bool) {
+    this.playerDirections[client.sessionId][direction] = bool
   }
 }
 

@@ -1,15 +1,17 @@
 import * as Colyseus from 'colyseus.js'
 import View from './view'
+import Redirect from '../force-http'
+
+Redirect()
 
 const view = new View()
-const client = new Colyseus.Client('ws://localhost:8080')
+const client = new Colyseus.Client(`ws://${window.location.host}`)
 const room = client.join('icematch', { player: false })
 
 room.listen('players/:id', (change) => { updatePlayer(change) })
 room.listen('players/:id/:attribute', (change) => { updateAttribute(change) })
 
 function updatePlayer (change) {
-  console.log(change)
   if (change.operation === 'add') {
     view.createPlayer(change.path.id, change.value.x, change.value.y)
   }
