@@ -1,4 +1,47 @@
-.controller {
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,700');
+@import url('https://fonts.googleapis.com/css?family=Gamja+Flower');
+
+body {
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  justify-content: center;
+}
+
+.title {
+  background: linear-gradient(to right, #37f6f7, #27074e);
+  -webkit-text-fill-color: transparent;
+  /* parcel ruins ordering, and background overwrites */
+  -webkit-background-clip: text !important;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 5em;
+
+  background-size: 150% 150%;
+  font-weight: 200;
+
+  -webkit-animation: Pretty 10s ease infinite;
+  -moz-animation: Pretty 10s ease infinite;
+  animation: Pretty 10s ease infinite;
+}
+
+@-webkit-keyframes Pretty {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes Pretty {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes Pretty {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+#controller {
+  display: none;
   top: 50%;
   left: 50%;
   position: absolute;
@@ -70,4 +113,21 @@
 #right {
   top: 5em;
   left: 5em;
+}
+
+.hide {
+  display: none;
+}
+
+#upload-btn {
+  font-weight: 200;
+  text-transform: uppercase;
+  font-family: Poppins, sans-serif;
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 5px;
+  background: none;
+  opacity: 0.7;
+  font-size: 1.2em;
+  color: #333;
 }
