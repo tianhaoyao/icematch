@@ -6,6 +6,7 @@ class GameState {
   constructor () {
     this.players = {}
     this.mode = new GameModeManager()
+    this.scores = {}
   }
 
   addPlayer (client) {
@@ -37,6 +38,28 @@ class GameState {
   getPlayer (sessionId) {
     return this.players[sessionId]
   }
+
+  addTrue(sessionId) {
+    this.scores[sessionId].add(true)
+  }
+
+  addFalse(sessionId) {
+    this.scores[sessionId].add(false)
+  }
+
+  getScore(sessionId) {
+    return this.scores[sessionId]
+  }
+
+  getScores() {
+    return this.scores
+  }
+
+  resetScores(sessionId) {
+    this.scores = {}
+  }
+
+
 }
 
 module.exports = GameState
