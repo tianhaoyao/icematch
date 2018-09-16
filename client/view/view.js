@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
-import {cosineInterp} from './interp'
+import { cosineInterp } from './interp'
 
 class View {
   constructor () {
@@ -33,6 +33,8 @@ class View {
     sprite.x = x
     sprite.y = y
 
+    console.log('create sprite')
+
     this.players[id] = new Player(x, y, 'file.png')
     this.sprites[id] = sprite
 
@@ -46,6 +48,7 @@ class View {
   }
 
   updatePosition (id, dimension, value) {
+    console.log(id, dimension, value)
     this.players[id][dimension] = value
   }
 }
