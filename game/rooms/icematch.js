@@ -12,10 +12,12 @@ class IceRoom extends Room {
   }
 
   onJoin (client, options) {
+    console.log(options.head)
+
     if (options.player) {
       if (this.state.mode.getMode() === 'lobby') {
         this.startLobby()
-        this.state.addPlayer(client)
+        this.state.addPlayer(client, options.head)
         this.playerDirections[client.sessionId] = {
           up: false,
           down: false,

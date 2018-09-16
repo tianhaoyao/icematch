@@ -13,7 +13,7 @@ room.listen('players/:id/:attribute', (change) => { updateAttribute(change) })
 
 function updatePlayer (change) {
   if (change.operation === 'add') {
-    view.createPlayer(change.path.id, change.value.x, change.value.y)
+    view.createPlayer(change.path.id, change.value.x, change.value.y, change.value.image)
   }
   if (change.operation === 'remove') {
     view.removePlayer(change.path.id)

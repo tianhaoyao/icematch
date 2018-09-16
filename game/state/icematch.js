@@ -14,10 +14,10 @@ class GameState {
     this.scores = {}
   }
 
-  addPlayer (client) {
+  addPlayer (client, head) {
     const x = Math.floor(Math.random() * (SPAWN_ZONE_RIGHT_BOUND - SPAWN_ZONE_LEFT_BOUND) + SPAWN_ZONE_LEFT_BOUND)
     const y = Math.floor(Math.random() * SCREEN_HEIGHT)
-    this.players[client.sessionId] = new Player(x, y, 'file.png', () => {
+    this.players[client.sessionId] = new Player(x, y, head, () => {
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
       } else {

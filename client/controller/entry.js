@@ -33,10 +33,9 @@ $input.addEventListener('change', () => {
 
       $landing.style.display = 'none'
       $controller.style.display = 'initial'
-    })
-    .then(() => {
+
       const client = new Colyseus.Client(`ws://${window.location.host}`)
-      const room = client.join('icematch', { player: true })
+      const room = client.join('icematch', { player: true, head: res.data.url })
 
       const controller = new TouchController(room, virtuals)
       const touchMap = {

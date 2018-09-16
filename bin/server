@@ -6,7 +6,6 @@ const PORT = process.env.PORT || 8080
 
 const app = require('../app')
 const colyseus = require('colyseus')
-const cors = require('cors')
 const http = require('http')
 const localIp = require('../util/ip')
 const { monitor } = require('@colyseus/monitor')
@@ -16,7 +15,6 @@ const server = http.createServer(app)
 const gameServer = new colyseus.Server({ server })
 
 register(gameServer)
-app.use(cors())
 app.use('/colyseus', monitor(gameServer))
 
 server.listen(PORT, (err) => {
