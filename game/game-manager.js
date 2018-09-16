@@ -1,4 +1,5 @@
 const { LOBBY_TIME } = require('../config.js')
+const uuidv4 = require('uuid/v4');
 
 class GameManager {
   constructor (gameState) {
@@ -19,6 +20,7 @@ class GameManager {
 
     setTimeout(() => {
       this.gameState.end = true
+      this.matchPlayers()
     }, time * 1000)
     // TODO: send matching payload
   }
@@ -28,6 +30,19 @@ class GameManager {
     this.gameState.answer1 = round.answer1
     this.gameState.answer2 = round.answer2
     this.gameState.time = round.time
+  }
+
+  matchPlayers(){
+    const players = this.gameState.players
+    const keys = Object.keys(players)
+    console.log(keys);
+    for (let i = 0; i < keys.length; i+=2){
+      const uuid = uuidv4()
+      console.log(uuid);
+      players[keys[i]].match = {'id': uuid, image: this.gameState.players[keys[i+1]].image}
+      players[keys[i+1]].match = {'id': uuid, image: this.gameState.players[keys[i]].image}
+    }
+    console.log(players);
   }
 }
 
