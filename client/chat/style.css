@@ -29,3 +29,7 @@
 #output {
   padding: 0;
 }
+
+#intro {
+  display: none;
+}
