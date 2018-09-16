@@ -90,7 +90,7 @@ class View {
       fill: 'black'
     })
 
-    this.question = PIXI.Text(question, style)
+    this.question = new PIXI.Text(question, style)
     this.question.x = SCREEN_WIDTH / 2
     this.question.y = 0
 
