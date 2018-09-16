@@ -2,6 +2,9 @@
 
 const { Router } = require('express')
 const fileUpload = require('express-fileupload')
+const simpleThumbnail = require('simple-thumbnail')
+const toStream = require('buffer-to-stream')
+const ffmpegStatic = require('ffmpeg-static')
 const path = require('path')
 const uuid = require('uuid/v1')
 
@@ -27,7 +30,9 @@ async function upload (req, res) {
   try {
     const picturePath = path.join(__dirname, `../../static/images/${fileuuid}.jpg`)
 
-    await picture.mv(picturePath)
+    await simpleThumbnail(toStream(picture.data), picturePath, '?x32', {
+      path: ffmpegStatic.path
+    })
   } catch (err) {
     console.error(err)
 
