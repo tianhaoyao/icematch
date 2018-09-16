@@ -1,5 +1,5 @@
 const { Room } = require('colyseus')
-const GameState = require('../state/icematch')
+const {GameState} = require('../state/icematch')
 const { SCREEN_WIDTH, SCREEN_HEIGHT, SPRITE_HEIGHT, SPRITE_WIDTH } = require('../../config.js')
 
 class IceRoom extends Room {
