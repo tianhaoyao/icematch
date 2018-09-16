@@ -43,7 +43,6 @@ class GameState {
     return this.players[sessionId]
   }
 
-<<<<<<< HEAD
   updateZone (sessionId) {
     if (this.players[sessionId].x + (SPRITE_WIDTH/2) < SCREEN_WIDTH/2){
         this.players[sessionId].zone = ZONES.YES
@@ -53,7 +52,7 @@ class GameState {
 
     console.log(this.players[sessionId].zone)
   }
-=======
+  
   addTrue(sessionId) {
     this.scores[sessionId].add(true)
   }
@@ -74,8 +73,6 @@ class GameState {
     this.scores = {}
   }
 
-
->>>>>>> 81ed3ec4abcf807770afc1c139d9859cdedd2783
 }
 
 module.exports = GameState
