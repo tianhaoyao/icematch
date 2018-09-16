@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js'
+import * as PIXI_CENTER from 'pixi-center'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
 import { cosineInterp } from './interp'
@@ -91,6 +92,9 @@ class View {
     })
 
     this.question = new PIXI.Text(question, style)
+    this.question.CenterX({
+      SCREEN_WIDTH
+    })
     this.question.x = SCREEN_WIDTH / 2
     this.question.y = 0
 
