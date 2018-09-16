@@ -27,7 +27,7 @@ class IceRoom extends Room {
       }
     }
   }
-  
+
   onMessage (client, data) {
     const direction = Object.keys(data)[0]
     this.updatePlayerDirection(client, direction, data[direction])
