@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div class="controller">
+    <div id="controller">
       <div class="d-pad">
         <div id="up"></div>
         <div id="down"></div>
@@ -15,10 +15,13 @@
         <div class="circle"></div>
       </div>
     </div>
-    <form>
-      <input id="upload-input" type="file" accept="image/*" capture="camera" />
-      <button id="upload-btn">Upload!</button>
-    </form>
+    <div id="landing">
+      <h1 class="title">Icematch!</h1>
+      <form>
+        <button id="upload-btn">Take a picture</button>
+        <input class="hide" id="upload-input" type="file" accept="image/*" capture="camera" />
+      </form>
+    </div>
     <script src="./entry.js"></script>
   </body>
 </html>
