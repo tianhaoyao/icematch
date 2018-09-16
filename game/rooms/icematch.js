@@ -43,9 +43,11 @@ class IceRoom extends Room {
       }
       if (moveSet.left && player.x > 0) {
         this.state.moveLeft(sessionId)
+        this.state.updateZone(sessionId)
       }
       if (moveSet.right && player.x + SPRITE_WIDTH < SCREEN_WIDTH) {
         this.state.moveRight(sessionId)
+        this.state.updateZone(sessionId)
       }
     }
   }

@@ -1,11 +1,24 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
-import Player from '../../game/state/player'
+import {Player, ZONES} from '../../game/state/player'
 import {cosineInterp} from './interp'
+import {SCREEN_WIDTH, SCREEN_HEIGHT} from '../../config.js'
 
 class View {
   constructor () {
-    this.app = new PIXI.Application({ backgroundColor: 0xfff8d1 })
+    this.app = new PIXI.Application({ backgroundColor: 0x66ff99 })
+
+    const graphics = new PIXI.Graphics();
+
+    graphics.beginFill(0xff5050);
+    graphics.moveTo(SCREEN_WIDTH/2,0);
+    graphics.lineTo(SCREEN_WIDTH, 0);
+    graphics.lineTo(SCREEN_WIDTH, SCREEN_HEIGHT);
+    graphics.lineTo(SCREEN_WIDTH/2, SCREEN_HEIGHT);
+    graphics.endFill();
+
+    this.app.stage.addChild(graphics)
+
     this.players = {}
     this.sprites = {}
 
@@ -33,7 +46,7 @@ class View {
     sprite.x = x
     sprite.y = y
 
-    this.players[id] = new Player(x, y, 'file.png')
+    this.players[id] = new Player(x, y, 'file.png', ZONES.NEUTRAL)
     this.sprites[id] = sprite
 
     this.app.stage.addChild(sprite)
