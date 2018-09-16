@@ -1,5 +1,5 @@
 const Player = require('./player')
-const { VELOCITY, YES_BOUND, NO_BOUND } = require('../../config.js')
+const { VELOCITY, YES_BOUND, NO_BOUND, SCREEN_HEIGHT } = require('../../config.js')
 
 class GameState {
   constructor () {
@@ -37,27 +37,25 @@ class GameState {
     return this.players[sessionId]
   }
 
-  addTrue(sessionId) {
+  addTrue (sessionId) {
     this.scores[sessionId].add(true)
   }
 
-  addFalse(sessionId) {
+  addFalse (sessionId) {
     this.scores[sessionId].add(false)
   }
 
-  getScore(sessionId) {
+  getScore (sessionId) {
     return this.scores[sessionId]
   }
 
-  getScores() {
+  getScores () {
     return this.scores
   }
 
-  resetScores(sessionId) {
+  resetScores (sessionId) {
     this.scores = {}
   }
-
-
 }
 
 module.exports = GameState
