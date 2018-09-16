@@ -1,13 +1,19 @@
 'use strict'
 
-const config = {
-  SCREEN_WIDTH: 800,
-  SCREEN_HEIGHT: 600,
-  SPRITE_WIDTH: 32,
-  SPRITE_HEIGHT: 64,
-  VELOCITY: 2,
-  YES_BOUND: this.SCREEN_WIDTH / 4,
-  NO_BOUND: (this.SCREEN_WIDTH / 4) * 3
-}
+const SCREEN_WIDTH = 800
+const SCREEN_HEIGHT = 600
+const SPRITE_WIDTH = 32
+const SPRITE_HEIGHT = 64
+const VELOCITY = 2
+const YES_BOUND = SCREEN_WIDTH / 4
+const NO_BOUND = (SCREEN_WIDTH / 4) * 3
 
-module.exports = config
+module.exports = {
+  SCREEN_WIDTH,
+  SCREEN_HEIGHT,
+  SPRITE_WIDTH,
+  SPRITE_HEIGHT,
+  VELOCITY,
+  YES_BOUND,
+  NO_BOUND
+}

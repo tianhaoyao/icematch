@@ -33,6 +33,8 @@ class View {
     sprite.x = x
     sprite.y = y
 
+    console.log('create sprite')
+
     this.players[id] = new Player(x, y, 'file.png')
     this.sprites[id] = sprite
 
@@ -46,6 +48,7 @@ class View {
   }
 
   updatePosition (id, dimension, value) {
+    console.log(id, dimension, value)
     this.players[id][dimension] = value
   }
 }
