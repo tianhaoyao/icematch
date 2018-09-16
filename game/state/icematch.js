@@ -58,18 +58,17 @@ class GameState {
     console.log(this.players[sessionId].zone)
   }
 
-  getScore(sessionId) {
+  getScore (sessionId) {
     return this.scores[sessionId]
   }
 
-  getScores() {
+  getScores () {
     return this.scores
   }
 
-  resetScores(sessionId) {
+  resetScores (sessionId) {
     this.scores = {}
   }
-
 }
 
 module.exports = {
