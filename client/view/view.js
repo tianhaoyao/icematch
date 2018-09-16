@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js'
 import * as Resources from '../resources'
 import Player from '../../game/state/player'
-import {cosineInterp} from './interp'
+import { cosineInterp } from './interp'
 
 class View {
   constructor () {

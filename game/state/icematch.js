@@ -1,5 +1,5 @@
 const Player = require('./player')
-const { VELOCITY, YES_BOUND, NO_BOUND } = require('../../config.js')
+const { VELOCITY, YES_BOUND, NO_BOUND, SCREEN_HEIGHT } = require('../../config.js')
 
 class GameState {
   constructor () {

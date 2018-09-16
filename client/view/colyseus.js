@@ -18,7 +18,7 @@ function updatePlayer (change) {
 }
 
 function updateAttribute (change) {
-  if (change.operation === "replace"){
+  if (change.operation === 'replace') {
     view.updatePosition(change.path.id, change.path.attribute, change.value)
   }
 }
