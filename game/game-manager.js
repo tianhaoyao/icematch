@@ -8,6 +8,7 @@ class GameManager {
 
   runGame (rounds) {
     let time = LOBBY_TIME
+    console.log(rounds)
 
     this.running = true
 
@@ -18,11 +19,12 @@ class GameManager {
 
     setTimeout(() => {
       this.gameState.end = true
-    }, time)
+    }, time * 1000)
     // TODO: send matching payload
   }
 
   runRound (round) {
+    console.log(round)
     this.gameState.question = round.question
     this.gameState.answer1 = round.answer1
     this.gameState.answer2 = round.answer2

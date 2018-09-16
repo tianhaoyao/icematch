@@ -7,6 +7,7 @@ const ffmpegStatic = require('ffmpeg-static')
 const path = require('path')
 const uuid = require('uuid/v1')
 const sharp = require('sharp')
+const { HEAD_HEIGHT } = require('../../config')
 
 const router = Router()
 const fileSize = 10 * 1024 * 1024
@@ -34,7 +35,7 @@ async function upload (req, res) {
 
     await sharp(picture.data).rotate(-90).toFile(picturePath)
 
-    await simpleThumbnail(picturePath, thumbPath, '?x32', {
+    await simpleThumbnail(picturePath, thumbPath, `?x${HEAD_HEIGHT}`, {
       path: ffmpegStatic.path
     })
   } catch (err) {
