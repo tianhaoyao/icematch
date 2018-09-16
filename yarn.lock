@@ -967,6 +967,17 @@ buffer-from@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
 
+buffer-stream@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/buffer-stream/-/buffer-stream-0.0.1.tgz#df2e8cdfc6338a74f47daa72ea03d975cf65c77e"
+  dependencies:
+    duplexer "0.0.2"
+    pause-stream "0.0.4"
+
+buffer-to-stream@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/buffer-to-stream/-/buffer-to-stream-1.0.0.tgz#64ae615303fdce9446c8a1ea50239e178a5b49ed"
+
 buffer-xor@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
@@ -1897,6 +1908,10 @@ duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
 
+duplexer@0.0.2:
+  version "0.0.2"
+  resolved "http://registry.npmjs.org/duplexer/-/duplexer-0.0.2.tgz#277f5c7dddc4fac1a170ca061b098cf33d5d333f"
+
 duplexer@^0.1.1, duplexer@~0.1.1:
   version "0.1.1"
   resolved "http://registry.npmjs.org/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -2365,6 +2380,10 @@ fast-levenshtein@~2.0.4:
 fclone@1.0.11:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/fclone/-/fclone-1.0.11.tgz#10e85da38bfea7fc599341c296ee1d77266ee640"
+
+ffmpeg-static@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/ffmpeg-static/-/ffmpeg-static-2.3.0.tgz#36976dc432a8df269c62aea705256bbd9fb66a94"
 
 figures@^2.0.0:
   version "2.0.0"
@@ -4048,6 +4067,10 @@ path-type@^2.0.0:
   dependencies:
     pify "^2.0.0"
 
+pause-stream@0.0.4:
+  version "0.0.4"
+  resolved "http://registry.npmjs.org/pause-stream/-/pause-stream-0.0.4.tgz#4631df36b7d54b34d14caa66a507b566f5229d29"
+
 pause-stream@^0.0.11:
   version "0.0.11"
   resolved "http://registry.npmjs.org/pause-stream/-/pause-stream-0.0.11.tgz#fe5a34b0cbce12b5aa6a2b403ee2e73b602f1445"
@@ -5248,6 +5271,10 @@ simple-swizzle@^0.2.2:
   resolved "https://registry.yarnpkg.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"
   dependencies:
     is-arrayish "^0.3.1"
+
+simple-thumbnail@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/simple-thumbnail/-/simple-thumbnail-1.2.0.tgz#6e5eb398203375d04f7531f7ee4f58f0ae93c704"
 
 slash@^1.0.0:
   version "1.0.0"
