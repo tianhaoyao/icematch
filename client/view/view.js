@@ -106,9 +106,9 @@ class View {
       fill: 'black'
     })
 
-    this.answer1 = new PIXI.Text(answer, style)
-    this.answer1 = SCREEN_WIDTH / 2
-    this.answer1.y = 0
+    this.answer1 = new PIXI.Text("answer", style)
+    this.answer1 = SCREEN_WIDTH / 4
+    this.answer1.y = SCREEN_HEIGHT / 8
 
     this.app.stage.addChild(this.answer1)
   }
@@ -122,9 +122,9 @@ class View {
       fill: 'black'
     })
 
-    this.answer2 = new PIXI.Text(answer, style)
-    this.answer2 = SCREEN_WIDTH / 2
-    this.answer2.y = 0
+    this.answer2 = new PIXI.Text("answer", style)
+    this.answer2 = (SCREEN_WIDTH / 4)*3
+    this.answer2.y = SCREEN_HEIGHT / 8
 
     this.app.stage.addChild(this.answer2)
   }
