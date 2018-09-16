@@ -43,7 +43,7 @@ function setAnswer2 (change) {
 }
 
 function setTime (change) {
-  for (const t = change.value; change >= 0; change--) {
-    setTimeout(() => { view.setTime(t) }, 1000)
+  for (let t = change.value; t >= 0; t--) {
+    setTimeout(() => { view.setTime(10 - t) }, 1000 * t)
   }
 }
