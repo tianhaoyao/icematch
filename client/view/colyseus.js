@@ -9,7 +9,6 @@ room.listen('players/:id', (change) => { updatePlayer(change) })
 room.listen('players/:id/:attribute', (change) => { updateAttribute(change) })
 
 function updatePlayer (change) {
-  console.log(change)
   if (change.operation === 'add') {
     view.createPlayer(change.path.id, change.value.x, change.value.y)
   }
