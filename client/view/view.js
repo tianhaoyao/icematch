@@ -23,17 +23,9 @@ class View {
     this.players = {}
     this.sprites = {}
 
-    const style = new PIXI.TextStyle({
-      fontFamily: 'Arial',
-      fontSize: 36,
-      align: 'center',
-      fill: 'black'
-    })
-
-    this.question = new PIXI.Text("Question");
-
-    this.answer1 = new PIXI.Text("Answer 1");
-    this.answer2 = new PIXI.Text("Answer 2");
+    this.question;
+    this.answer1;
+    this.answer2;
 
     document.getElementById('view').appendChild(this.app.view)
     this.renderLoop()
@@ -91,7 +83,14 @@ class View {
 
     this.app.stage.removeChild(this.question)
 
-    this.question.text = question
+    const style = new PIXI.TextStyle({
+      fontFamily: 'Arial',
+      fontSize: 36,
+      align: 'center',
+      fill: 'black'
+    })
+
+    this.question = PIXI.Text(question, style)
     this.question.x = SCREEN_WIDTH / 2
     this.question.y = 0
 
