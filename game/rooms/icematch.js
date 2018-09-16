@@ -1,5 +1,5 @@
 const { Room } = require('colyseus')
-const {GameState} = require('../state/icematch')
+const { GameState } = require('../state/icematch')
 const { SCREEN_WIDTH, SCREEN_HEIGHT, SPRITE_HEIGHT, SPRITE_WIDTH } = require('../../config.js')
 
 class IceRoom extends Room {
@@ -12,7 +12,7 @@ class IceRoom extends Room {
 
   onJoin (client, options) {
     if (options.player) {
-     if (this.state.mode.getMode() === 'lobby') {
+      if (this.state.mode.getMode() === 'lobby') {
         this.startLobby()
         this.state.addPlayer(client)
         this.playerDirections[client.sessionId] = {
@@ -24,9 +24,10 @@ class IceRoom extends Room {
         console.log(`Player ${client.sessionId} joined!`)
       } else {
         console.log(`Player ${client.sessionId} cannot join! Game in progress.`)
+      }
     }
   }
-
+  
   onMessage (client, data) {
     const direction = Object.keys(data)[0]
     this.updatePlayerDirection(client, direction, data[direction])
@@ -61,14 +62,14 @@ class IceRoom extends Room {
 
     console.log(`Player ${client.sessionId} left!`)
   }
-  
-     startLobby () {
+
+  startLobby () {
     if (!this.lobbyTimerStarted) {
       this.state.mode.startLobbyTimer()
       this.lobbyTimerStarted = true
     }
-  } 
-    
+  }
+
   updatePlayerDirection (client, direction, bool) {
     this.playerDirections[client.sessionId][direction] = bool
   }

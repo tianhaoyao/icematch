@@ -45,8 +45,8 @@ class View {
     const sprite = new PIXI.Container()
     const head = PIXI.Texture.fromImage('../../static/images/photo.png')
     const body = PIXI.Texture.fromImage(Resources.playerSprite)
-    const headSprite = new PIXI.Sprite(head);
-    const bodySprite = new PIXI.Sprite(body);
+    const headSprite = new PIXI.Sprite(head)
+    const bodySprite = new PIXI.Sprite(body)
 
     headSprite.x = 0
     headSprite.y = 0
@@ -60,8 +60,8 @@ class View {
     sprite.y = y
 
     console.log('create sprite')
-    
-    this.players[id] = new Player(x, y, '../../static/images/photo.png',  () => {
+
+    this.players[id] = new Player(x, y, '../../static/images/photo.png', () => {
       if (x < SPAWN_ZONE_LEFT_BOUND) {
         return ZONES.YES
       } else {
